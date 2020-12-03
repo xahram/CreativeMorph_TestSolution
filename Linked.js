@@ -50,12 +50,11 @@ const linked = [
 
 const unlinkedUsers = (users, linkedUsers) => {
     const unlinkedUser = users.filter((user) => {
-        // let exist = true;
-        for (i = 0; i < linkedUsers.length; i++) {
-            // (linkedUsers[i].id === user.id) ? false : true;
-            return (user.id !== linkedUsers[i].id)
-        }
-
+        return linkedUsers.filter((linkeduser)=>{
+			return user.id === linkeduser.id
+		}).length == 0
+		  
+		
     })
     return unlinkedUser
 }
